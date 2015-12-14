@@ -1,0 +1,10 @@
+{
+  "name": "PolymerNykredit",
+  "authors": [
+    "Kim Dalsgaard <kim@kimdalsgaard.com>"
+  ],
+  "private": true,
+  "dependencies": {
+    "polymer": "~1.2.3"
+  }
+}
