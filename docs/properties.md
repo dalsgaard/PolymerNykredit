@@ -55,7 +55,7 @@ properties: {
 
 This key is mandatory.
 
-### value
+### _value_
 
 The default value for the property. The value for this key can either be
 a boolean, number, string or function.
@@ -76,7 +76,7 @@ properties: {
 }
 ```
 
-### reflectToAttribute
+### _reflectToAttribute_
 
 Boolean value determining whether or not the corresponding attribute value
 should reflect this property.
@@ -90,7 +90,7 @@ properties: {
 }
 ```
 
-### readOnly
+### _readOnly_
 
 Boolean value determining whether or not this property is read-only.
 
@@ -112,7 +112,7 @@ ready: function () {
 }
 ```
 
-### notify
+### _notify_
 
 Boolean value determining whether or not the property
  can be used by the two-way data binding system.
@@ -135,9 +135,12 @@ foo.addEventListener('bar-baz-changed', function (e) {
 });
 ```
 
-### computed
+### _computed_
 
-String value interpreted as a method name and an argument list. The method is called to calculate the value of the property. If one or more of the arguments from the argument list changes, the property value is recalculated.
+String value interpreted as a method name and an argument list.
+The method is called to calculate the value of the property.
+If one or more of the arguments from the argument list changes,
+the property value is recalculated.
 
 ```js
 Polymer({
@@ -170,9 +173,10 @@ properties: {
 }
 ```
 
-### observer
+### _observer_
 
-String value interpreted as a method name. The method is called whenever the value of the property changes.
+String value interpreted as a method name.
+The method is called whenever the value of the property changes.
 
 ```js
 Polymer({
@@ -194,9 +198,12 @@ Polymer({
 
 The `observers` array can be used to listen to multiple properties or sub-paths of a property.
 
-### Observing multiple properties
+### Observing Multiple Properties
 
-This syntax is very much like computed properties - a string value interpreted as a method name and an argument list. The listener is called when one or more of the arguments from the argument list is changed, and none of the arguments are undefined.
+This syntax is very much like computed properties
+- a string value interpreted as a method name and an argument list.
+The listener is called when one or more of the arguments from the argument list is changed,
+and none of the arguments are undefined.
 
 ```js
 Polymer({
@@ -214,7 +221,7 @@ Polymer({
 });
 ```
 
-### Observing property sub-paths
+### Observing Property Sub-Paths
 
 A 'dot' notation is used to observe a sub-path.
 
@@ -238,7 +245,8 @@ Polymer({
 });
 ```
 
-The listener is called when the sub-path changes, but only is `set` method is used (or notifyPath).
+The listener is called when the sub-path changes,
+but only if it's `set` method is used (or notifyPath).
 
 ```js
 foo.set('user.email', 'kim@kimdalsgaard.com');
