@@ -61,6 +61,33 @@ Polymer({
 });
 ```
 
+#### Creating a constructor
+
+The `Polymer` function will return a constructor for the newly registered element.
+Script tags inside the `dom-module` tag will be executed in global scoop
+(like all other script tags)
+- so we can save a reference to the constructor like this.
+
+```js
+var FooBar = Polymer({
+  is: 'foo-bar'
+});
+```
+
+#### Passing arguments to the constructor
+
+Sometimes it is convenient to pass arguments to an elements constructor.
+This can be done by implementing the `factoryImpl` method.
+
+```javascript
+var FooBar = Polymer({
+  is: 'foo-bar',
+  factoryImpl: function(bar) {
+  	this.bar = bar;
+  }
+});
+```
+
 ## Using the Element
 
 ```html
@@ -74,6 +101,11 @@ Polymer({
   </head>
   <body>
     <foo-bar></foo-bar>
+    <script>
+      window.addEventListener('WebComponentsReady', function() {
+        var fooBar = document.querySelector('foo-bar');
+      });
+    </script>
   </body>
 </html>
 ```
@@ -94,4 +126,35 @@ Polymer({
 
 ```html
 <foo-bar></foo-bar>
+```
+
+### Listening for _WebComponentsReady_
+
+```js
+window.addEventListener('WebComponentsReady', function() {
+  var fooBar = document.querySelector('foo-bar');
+});
+```
+
+## Extending Native Elements
+
+A native element is extended by setting the `extends` property on the prototype.
+
+```js
+Polymer({
+  is: 'foo-input',
+  extends: 'input'
+  }
+});
+```
+
+To use the extended version of the element set the `is` attribute on the element.
+
+```html
+<input is="foo-input">
+```
+or create the element in JavaScript via the DOM API.
+
+```javascript
+var foo = window.document.createElement('input', 'foo-input');
 ```
