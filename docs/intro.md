@@ -144,7 +144,6 @@ A native element is extended by setting the `extends` property on the prototype.
 Polymer({
   is: 'foo-input',
   extends: 'input'
-  }
 });
 ```
 
